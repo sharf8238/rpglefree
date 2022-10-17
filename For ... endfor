@@ -1,0 +1,15 @@
+H                                               
+D i               S              2s 0           
+ *                                              
+ /Free                                          
+     for i = 1 to 10;                           
+         dsply  i;                              
+     EndFor;                                    
+     for i = 1 to 10  by 3;                     
+         dsply i;                               
+     EndFor;                                    
+     for i = 15 downto 1  by 5;                 
+         dsply i;                               
+     EndFor;                                    
+     *Inlr = *on;                               
+ /End-free                                      
