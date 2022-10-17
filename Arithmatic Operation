@@ -1,0 +1,14 @@
+H                                                
+D A               S              3s 0            
+D B               S              3s 0            
+ *                                               
+ /Free                                           
+     dsply 'Enter Number 1  :' ' ' A;            
+     dsply 'Enter Number 2  :' ' ' B;            
+     dsply ('Add :' + %char(A+B));               
+     dsply ('Sub :' + %char(A-B));               
+     dsply ('Mul :' + %char(A*B));               
+     dsply ('Div :' + %char(A/B));               
+     dsply ('Rem :' + %char(%rem(A:B)));         
+     *Inlr = *on;                                
+ /End-free                                       
