@@ -1,0 +1,14 @@
+H                                            
+D i               S              2s 0        
+ *                                           
+ /Free                                       
+     i = 1;                                  
+     DoW (i<=10);                            
+         i +=1;                              
+         if (%rem(i:3)=0);                   
+          iter;                              
+         EndIf;                              
+         dsply  i;                           
+     Enddo;                                  
+     *Inlr = *on;                            
+ /End-free                                   
