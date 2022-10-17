@@ -1,0 +1,16 @@
+H                                            
+D i               S              2s 0        
+ *                                           
+ /Free                                       
+     i = 1;                                  
+     Dow (i<10);                             
+         i +=1;                              
+         dsply  i;                           
+     Enddo;                                  
+     i = 20;                                 
+     Dow (i>=10);                            
+         dsply i;                            
+         i -=2;                              
+     Enddo;                                  
+     *Inlr = *on;                            
+ /End-free                                   
