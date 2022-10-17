@@ -1,0 +1,8 @@
+H                                            
+D Name            S             30A          
+ *                                           
+ /Free                                       
+     dsply 'Enter Your Name :' ' ' Name;     
+     dsply  ('Hello ' + %trim(Name));        
+     *Inlr = *on;                            
+ /End-free                                   
