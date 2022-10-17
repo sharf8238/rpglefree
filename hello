@@ -1,0 +1,19 @@
+H                                                    
+D Num1            S              5S 0                
+D Num2            S              5P 0                
+D Num3            S              5S 2                
+D Num4            S              5P 3                
+D Dat1            S               D                  
+D Tim1            S               T                  
+D TimeStamp       S               Z                  
+D Flag            S              1N                  
+D PI              C                   3.14           
+D Name            S             30A                  
+ *                                                   
+ /Free                                               
+     Flag = *on;      // *off                        
+     Dat1 = %Date();                                 
+     Tim1 = %Time();                                 
+     TimeStamp = %TimeStamp();                       
+     Num1 = %Rem(10:3);                              
+     eval(h) Num3 = 14/5;                            
