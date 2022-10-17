@@ -1,0 +1,14 @@
+H                                                        
+D Age             S              3s 0                    
+ *                                                       
+ /Free                                                   
+     dsply 'Enter The Age   :' ' ' Age;                  
+     if (Age < 18 );                                     
+         dsply (('Age :' + %char(Age) + '  Is Minor'));  
+     elseif (Age>=18  and Age<=25);                      
+         dsply (('Age :' + %char(Age) + '  Is Major'));  
+     else;                                               
+         dsply (('Age :' + %char(Age) + '  Is Senior')); 
+     endif;                                              
+     *Inlr = *on;                                        
+ /End-free                                               
