@@ -1,0 +1,38 @@
+ //  Clear SFL                                         
+ //  Load  SFL                                         
+ //  Display SFL                                       
+H                                                      
+FBRANWTN   IF   E           K DISK                     
+FSUB058D   CF   E             WORKSTN SFILE(SCRDTA:RRN)
+ *                                                     
+D RRN             S              4S 0                  
+ *                                                     
+C                                                      
+ *                                                     
+ /Free                                                 
+     exsr  ClearSR;                                    
+     exsr  LoadSR;                                     
+     exfmt SCRCTL;                                     
+     *inlr = *on;                                      
+ /End-free                                             
+ *                                                     
+ /Free        
+      begsr ClearSR;                  
+        *in50 = *off;                
+        RRN = 0;                     
+        Write SCRCTL;                
+        *in50 = *on;                 
+        Endsr;                       
+ /End-free                           
+ *                                   
+ /Free                               
+     begsr LoadSR;                   
+         setll  *loval BRANWTN;      
+         read BRANWTN;               
+         Dow NOT %eof(BRANWTN);      
+           rrn = rrn +1;             
+           write SCRDTA;             
+           read BRANWTN;             
+         Enddo;                      
+     EndSR;                          
+ /End-free                           
