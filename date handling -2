@@ -1,0 +1,18 @@
+    // Date handling Functions in RPGLE                  
+ H                                                       
+ D MyDateISO       S               D   DatFmt(*ISO)      
+ D Date8           S              8A                     
+ D Date8S          S              8S 0                   
+  /Free                                                  
+     Date8     = '20181225';                             
+     Date8S    =  20181225;                              
+     MyDateISO = %date(Date8:*ISO0);                     
+     MyDateISO = %date(Date8S:*ISO);                     
+     Date8S    =  20180231;                              
+     Monitor;                                            
+         MyDateISO = %date(Date8S:*ISO);                 
+     On-Error;                                           
+         dsply 'Date Not Valid.';                        
+     EndMon;                                             
+      *Inlr = *on;                                       
+  /End-free                                              
