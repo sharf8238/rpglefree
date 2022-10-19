@@ -1,0 +1,43 @@
+   // Exception Handling in RPGLE                                          
+   //      - *PSSR a sub routine executed whenever there is error in prog  
+   //      - INFSR for files - suboutine attached to PF when there is error
+   //      - E-Extender                                                    
+   //      - Monitor;                                                      
+   //           Code to Monitor                                            
+   //        On-Error statuscode ; statuscode ; (status code from net)     
+   //           Handle Error                                               
+   //        On-Error *FILE                                                
+   //           Handle Error                                               
+   //        On-Error *PROGRAM                                             
+   //           Handle Error                                               
+   //        On-Error *ALL                                                 
+   //           Handle Error                                               
+   //      EndMon                                                          
+H                                                                          
+D Str             S             10A   inz('ABC')                           
+D Pos             S              2S 0                                      
+D i               S              2S 0                                      
+D a               S              2S 0 inz(10)  
+D b               S              2S 0 inz(1)   
+D c               S              2S 0          
+D arr             S              2S 0 dim(5)   
+D DIV_BY_ZERO     C                   00102    
+D CHAR_TO_DEC     C                   00105    
+D ARRAY_IDX       C                   00121    
+ /Free                                         
+    Monitor;                                   
+        c = a/b;                               
+        Pos = %dec(str:2:0);                   
+        i = 10;                                
+        c = Arr(i);                            
+    On-Error DIV_BY_ZERO;                      
+        dsply 'Attempt to divide by zero';     
+    On-Error CHAR_TO_DEC;                      
+        dsply 'Char to Decimal Not Valid';     
+    On-Error ARRAY_IDX;                        
+        dsply 'Invalid Array Index';           
+    On-Error;                                  
+            dsply 'Un Monitored Error.'; 
+    EndMon;                          
+     *Inlr = *on;                    
+ /End-free                           
