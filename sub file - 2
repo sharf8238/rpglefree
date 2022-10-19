@@ -1,0 +1,136 @@
+ //  Clear SFL                                         
+ //  Load  SFL                                         
+ //  Display SFL                                       
+H                                                      
+FBRANWTN   UF A E           K DISK                     
+FSUB059D   CF   E             WORKSTN INFDS(DSPSBK)    
+F                                     SFILE(SCRDTA:RRN)
+ *                                                     
+D RRN             S              4S 0                  
+ *                                                     
+D XRNAME          S                   like(BRNAME)     
+D XRA001          S                   like(BRA001)     
+D XRBR#D          S                   like(BRBR#D)     
+D XRUSRD          S                   like(BRUSRD)     
+D                                                      
+D DSPSBK          DS                                   
+D  SF_RRN               376    377I 0                  
+D  MIN_RRN              378    379I 0                  
+D  NUM_RCDS             380    381I 0                  
+ *                            
+C                             
+ *                            
+ /Free                        
+     rcdnbr = 1;              
+     exsr  ClearSR;           
+     exsr  LoadSR;            
+     write footer;            
+     Dow  *in03 = *off;       
+        exfmt SCRCTL;         
+        if Posno <> 0;        
+           rcdnbr = Posno;    
+        else;                 
+           rcdnbr = min_rrn;  
+        endif;                
+        Select;               
+        When *in06 = *on;     
+           exsr addSub;       
+        Other;                
+           readc SCRDTA;      
+                      doW NOT %eof;          
+           if  opt='X';           
+              Opt=' ';            
+              Update SCRDTA;      
+           endIF;                 
+           readc SCRDTA;          
+           Enddo;                 
+        EndSl;                    
+     endDo;                       
+     *inlr = *on;                 
+ /End-free                        
+ *                                
+ /Free                            
+        begsr addSub;             
+           BR#    = *zeros;       
+           BRNAME = *blanks;      
+           BRA001 = *zeros;       
+           BRBR#D = *blanks;      
+           BRUSRD = *blanks;      
+        DoW *in12 = *off;       
+                    exfmt addrec;      
+            exsr  addSr;       
+        EndDo;                 
+        *in12 = *off;          
+        exsr  ClearSR;         
+        exsr  LoadSR;          
+        endsr;                 
+ /End-free                     
+ *                             
+ /Free                         
+        begsr UpdSub;          
+        if *in12 = *on;        
+           *in12 = *off;       
+           leaveSR;            
+        endif;                 
+           XRNAME = BRNAME;    
+           XRA001 = BRA001;    
+           XRBR#D = BRBR#D;    
+           XRUSRD = BRUSRD;    
+           chain BR# BRANWTN;  
+                      if %found;        
+           BRNAME = XRNAME;  
+           BRA001 = XRA001;  
+           BRBR#D = XRBR#D;  
+           BRUSRD = XRUSRD;  
+           update BRMAST;    
+           endif;            
+        exsr  ClearSR;       
+        exsr  LoadSR;        
+        endsr;               
+ /End-free                   
+ *                           
+ /Free                       
+     begsr ClearSR;          
+        *in50 = *off;        
+        RRN = 0;             
+        Write SCRCTL;        
+        *in50 = *on;         
+        Endsr;               
+ /End-free                   
+  *                                                   
+ /Free                                               
+     begsr LoadSR;                                   
+         setll  *loval BRANWTN;                      
+         read BRANWTN;                               
+         Dow NOT %eof(BRANWTN);                      
+           rrn = rrn +1;                             
+           write SCRDTA;                             
+           read BRANWTN;                             
+         Enddo;                                      
+     EndSR;                                          
+ /End-free                                           
+ *                                                   
+ /Free                                               
+     begsr AddSr;                                    
+         if BR# = 0;                                 
+             msg = 'Branch Number cannot be blanks'; 
+         elseif BRNAME= *blanks;                     
+             msg = 'Branch Name cannot be blanks';   
+         elseif BRBR#D= *blanks;                     
+                      msg = 'BRBR#D Number cannot be blanks';    
+         elseif BRA001= *zeros;                         
+             msg = 'BRA001 Number cannot be blanks';    
+         elseif BRUSRD= *blanks;                        
+             msg = 'BRUSRD Number cannot be blanks';    
+         else;                                          
+           write BRMAST;                                
+             msg = 'Records Added Sucessfully.....';    
+           BR#    = *zeros;                             
+           BRNAME = *blanks;                            
+           BRA001 = *zeros;                             
+           BRBR#D = *blanks;                            
+           BRUSRD = *blanks;                            
+         endif;                                         
+     EndSR;                                             
+ /End-free                                              
+                             
