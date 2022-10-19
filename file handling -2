@@ -1,0 +1,23 @@
+   // DB2  -  file handling                      
+   // Read                                       
+   // Readp                                      
+   // Reade                                      
+   // Readpe                                     
+   // Chain                                      
+   // Setll                                      
+   // SetGt                                      
+   // Update                                     
+   // Delete                                     
+   // Write                                      
+H                                                
+FBRANWTN   IF   E           K DISK               
+D i               S              2S 0            
+D c               S              2S 0            
+ /Free                                           
+    Read BRANWTN;                                
+    Dow Not %EOF(BRANWTN);                       
+        Dsply BRNAME;                            
+               Read BRANWTN;
+   EndDo;           
+    *Inlr = *on;    
+/End-free           
