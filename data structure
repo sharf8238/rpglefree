@@ -1,0 +1,24 @@
+   // Data Structures                                                
+   //    The ILE compiler allows you to define an area in storage    
+   //    and layout of the fields, called sub fields within the area.
+   //    The area in storage is called Data Structure.               
+   //                                                                
+   //    - Decleration (Different ways)                              
+   //    - Qualified DS                                              
+   //    - Template and likeDS keyword                               
+   //    - Overlay                                                   
+   //    - Multi Dimension                                           
+   //    - Example                                                   
+H                                                                    
+D MyDs            DS                                                 
+D  Fld1                          2S 0                                
+D  Fld2                          3A                                  
+D  Fld3                          3p 2                                
+ *                                                                   
+ /Free                                                               
+     Fld1 = 12.0; 
+          Fld2 = 'ABC';
+     Fld3=3.25;   
+     Dsply MyDs;  
+     *Inlr = *on; 
+ /End-free        
