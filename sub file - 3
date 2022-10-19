@@ -1,0 +1,31 @@
+H                                                        
+FBRANCH    IF   E           K DISK                       
+FSUB001D   CF   E             WORKSTN                    
+F                                     SFILE(SCRSFL:RRN#) 
+D RRN#            S              4S 0                    
+C                                                        
+ /Free                                                   
+     exsr $ClearSr;                                      
+     exsr $LoadSr;                                       
+     exfmt SCRCTL;                                       
+     *Inlr = *on;                                        
+ /End-free                                               
+ /Free                                                   
+     begSr $ClearSr;                                     
+     *In50 = *off;                                       
+     RRN# = 0;                                           
+     write SCRCTL;                                       
+     *In50 = *on;                                        
+     endSr;                                              
+      /End-free                   
+ /Free                       
+     begSr $LoadSr;          
+     setll *loval Branch;    
+     Read Branch;            
+     Dow  Not %Eof(Branch);  
+        RRN# = RRN# + 1;     
+        write ScrSfl;        
+        Read Branch;         
+     EndDo;                  
+     endSr;                  
+ /End-free                   
