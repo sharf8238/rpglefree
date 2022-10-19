@@ -1,0 +1,26 @@
+   // DB2  -  file handling                        
+   // Read                                         
+   // Readp                                        
+   // Reade                                        
+   // Readpe                                       
+   // Chain                                        
+   // Setll                                        
+   // SetGt                                        
+   // Update                                       
+   // Delete                                       
+   // Write                                        
+H                                                  
+FCUSTSDC   IF   E           K DISK                 
+D i               S              2S 0              
+D key             S                   like(SUBNO)  
+ /Free                                             
+    key =  32602417;                               
+     setLL key CUSTSDC;                            
+     ReadE key CUSTSDC;                            
+          Dow Not %EOF(CUSTSDC);
+        Dsply SUBNO;       
+        Dsply NEWNO;       
+        ReadE key CUSTSDC; 
+     EndDo;                
+     *Inlr = *on;          
+ /End-free                 
