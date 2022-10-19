@@ -1,0 +1,37 @@
+   // Data Structures                                          
+   //    Student                                               
+   //       FirstName                                          
+   //       LastName                                           
+   //       ContactInfo                                        
+   //          MobilePhone                                     
+   //          WorkPhone                                       
+   //          Email                                           
+   //            Personal                                      
+   //            Official                                      
+   //       Department                                         
+H                                                              
+D Student         DS                  Qualified                
+D  FirstName                    30A                            
+D  LastName                     30A                            
+D  ContactInfo                        LikeDS(Contact_I)        
+D  Department                    3A                            
+D*                                                             
+D Contact_I       DS                  Qualified                
+D  MobilePhone                  10A                             
+D  WorkPhone                    10A                             
+D  Email                              LikeDS(Email_I)           
+D*                                                              
+D Email_I         DS                  Qualified                 
+D  Personal                     50A                             
+D  Official                     50A                             
+D*                                                              
+ /Free                                                          
+     Student.FirstName='Abdul Rahim';                           
+     Student.LastName ='Sharfudeen';                            
+     Student.ContactInfo.MobilePhone='0558717936';              
+     Student.ContactInfo.WorkPhone  ='0118182000';              
+     Student.ContactInfo.Email.Personal='sharf8238@gmail.com';  
+     Student.ContactInfo.Email.Official='a.Sharfudeen@Srpc.com';
+     Student.Department='ITC';                                  
+     *Inlr = *on;                                               
+ /End-free                                                      
