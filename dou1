@@ -1,0 +1,11 @@
+H                                                      
+D i               S              2s 0                  
+ *                                                     
+ /Free                                                 
+     i = 1;                                            
+     DoU (i>=10);                                      
+         i +=1;                                        
+         dsply  i;                                     
+     Enddo;                                            
+     *Inlr = *on;                                      
+ /End-free                                             
