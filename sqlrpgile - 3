@@ -1,0 +1,26 @@
+   // SQLRPGLE                                        
+   // Exec sql                                        
+   //   SET Option Commit = *None;  ** Not working ** 
+   // Exec sql                                        
+   // Declare Cursor S1 for ( Select * from TestPF)   
+H                                                     
+FTESTPF    IF   E           K DISK                    
+ *                                                    
+D MyDs          E DS                  ExTName(TESTPF) 
+ *                                                    
+C                                                     
+ /Free                                                
+    Exec Sql                                          
+          SET Option Commit = *None;                  
+    Exec Sql                                          
+          Drop Table Qtemp/F1;                        
+    Exec Sql                                          
+    Declare C1 Scroll Cursor  for                     
+      Select * from TestPF; 
+         Exec Sql                         
+     Open C1;                       
+   Exec Sql                         
+     Fetch last from  C1 into :MyDs;
+   Close C1;                        
+    *Inlr = *on;                    
+/End-free                           
