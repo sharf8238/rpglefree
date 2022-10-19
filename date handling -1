@@ -1,0 +1,15 @@
+// Date handling Functions in RPGLE               
+H                                                    
+D MyDateISO       S               D   DatFmt(*ISO)   
+D Date8           S              8A                  
+D Date8S          S              8S 0                
+ /Free                                               
+    MyDateISO = %date();                             
+    Date8     = %char(MyDateISO:*ISO0);              
+    dsply       Date8                                
+    Date8     = %char(MyDateISO:*EUR0);              
+    dsply       Date8                                
+    Date8S    = %dec(%char(MyDateISO:*EUR0):8:0);    
+    dsply       Date8S                               
+     *Inlr = *on;                                    
+ /End-free                                           
