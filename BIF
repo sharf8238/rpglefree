@@ -1,0 +1,21 @@
+   // BIFs Built In Functions in RPGLE                                      
+   //   - Group a logic of Codes                                            
+   //   - Readablity                                                        
+   //   - Organizing Code                                                   
+   // Sub Procedures                                                        
+   //   - Act like Sub Programs                                             
+   //   - Can accept parameters and return values                           
+   //   - can utilize ILE features                                          
+   //   - Used for modularizing code                                        
+   //   - Can be exported outside of program so that other program can call 
+   //     this sub procedure                                                
+H                                                                           
+Ddate             S             10A   INZ('20181225')                       
+Dtime             S              8A   INZ('12:12:12')                       
+Dresult           S             52A                                         
+ /Free                                                                      
+     result = 'It is ' + %CHAR(time : *jobrun)                              
+               + ' on ' + %CHAR(date : *jobrun);                            
+     dsply result;                                                          
+         *Inlr = *on;
+/End-free       
