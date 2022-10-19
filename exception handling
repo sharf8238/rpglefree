@@ -1,0 +1,22 @@
+   // Exception Handling in RPGLE                                          
+   //      - *PSSR a sub routine executed whenever there is error in prog  
+   //      - INFSR for files - suboutine attached to PF when there is error
+   //      - E-Extender                                                    
+   //      - Monitor Group                                                 
+H                                                                          
+D A               S              5S 0 inz(10)                              
+D B               S              5S 0                                      
+D C               S              5S 0                                      
+ /Free                                                                     
+    C   = A/B;                                                             
+    dsply C;                                                               
+     *Inlr = *on;                                                          
+ /End-free                                                                 
+ /Free                                                                     
+    BegSr *PSSR;                                                           
+     Dump(A);                                                              
+     dsply 'Invalid Data seen';                                            
+     *Inlr = *on;                                                          
+         return; 
+   Endsr;   
+/End-free   
