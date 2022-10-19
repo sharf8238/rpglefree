@@ -1,0 +1,12 @@
+ H                                             
+ D i               S              3s 0         
+  *                                            
+  /Free                                        
+      For i = 100 downto 1;                    
+          if (%rem(i:6)=0);                    
+           dsply  i;                           
+           leave;                              
+          EndIf;                               
+      EndFor;                                  
+      *Inlr = *on;                             
+  /End-free                                    
