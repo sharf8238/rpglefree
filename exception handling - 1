@@ -1,0 +1,14 @@
+   // Exception Handling in RPGLE                                           
+   //      - *PSSR a sub routine executed whenever there is error in prog   
+   //      - INFSR for files - suboutine attached to PF when there is error 
+   //      - E-Extender                                                     
+   //      - Monitor Group                                                  
+H                                                                           
+D Pgm             PR                  EXTPGM('ABC')                         
+ /Free                                                                      
+    Callp(E) Pgm();                                                         
+    if %Error();                                                            
+      dsply 'Error while calling program...';                               
+    Endif;                                                                  
+     *Inlr = *on;                                                           
+ /End-free                                                                  
