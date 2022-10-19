@@ -1,0 +1,20 @@
+   // BIFs Built In Functions in RPGLE                  
+H                                                       
+D NumChar         S             20A                     
+D Result          S             20A   Varying           
+D tmp             S              1A                     
+D Pos             S              2S 0                   
+D i               S              2S 0                   
+D Digits          S             10A   inz('0123456789') 
+ /Free                                                  
+    dsply 'Enter Number and Charactor.:' ' ' NumChar;   
+    For i = 1 to %len(%trim(NumChar));                  
+      Tmp = %Subst(NumChar:i:1);                        
+      Pos = %Check(Digits:Tmp);                         
+      If (Pos=0);                                       
+          Result += Tmp;                                
+      Endif;                                            
+     EndFor;                                            
+    dsply Result;                                       
+     *Inlr = *on;                                       
+/End-free
