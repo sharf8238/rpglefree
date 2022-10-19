@@ -1,0 +1,45 @@
+   // Date handling Functions in RPGLE                  
+H                                                       
+FUSERALL   IP   E           K DISK                      
+FUSERLSTF  O    E           K DISK    prefix(wrk)       
+D MyDateISO1      S               D   DatFmt(*ISO)      
+D MyDateISO2      S               D   DatFmt(*ISO)      
+D Days_Diff       S              5S 0                   
+D MyDateISO       S               D   DatFmt(*YMD)      
+D YYMMDD          DS                                    
+D  cc                            2A   inz('20')         
+D  yy                            2A                     
+D  mm                            2A                     
+D  dd                            2A                     
+D INVALID_DATE    C                   00112             
+ /Free                                                  
+    if   %subst(UPUPRF:1:1) <> 'Q';                     
+    if   UPSTAT = '*ENABLED';                           
+    if   UPPSOD <> '*ENABLED';                          
+    yy     =    %subst(UPPSOD:1:2);                     
+        mm     =    %subst(UPPSOD:3:2);                 
+    dd     =    %subst(UPPSOD:5:2);                 
+    Monitor;                                        
+    MyDateISO2= %date(YYMMDD:*ISO0);                
+    On-Error INVALID_DATE;                          
+    EndMon;                                         
+    MyDateISO1= %date();                            
+    Days_Diff = %Diff(MyDateISO1:MyDateISO2:*Days); 
+   // if Days_Diff >= 60;                           
+     wrkUPUPRF = UPUPRF;                            
+     wrkUPPSOD = UPPSOD;                            
+     wrkUPPSOT = YYMMDD;                            
+     wrkUPJBDS = UPJBDS;                            
+     wrkUPOWNR = UPOWNR;                            
+     wrkUPTEXT = UPTEXT;                            
+     wrkUPCRLB = UPCRLB;                            
+     wrkUPINMN = UPINMN;                            
+     wrkUPUPLK = UPUPLK;                            
+     wrkUPSTAT = UPSTAT;                            
+     wrkDAYS   = Days_Diff;                         
+          write WRKREC;  
+   // EndIf;        
+    EndIf;          
+    EndIf;          
+    EndIf;          
+ /End-free          
