@@ -1,0 +1,33 @@
+TESTJLF
+A          R MASREC                    JFILE(CUSTMR BRANCH)      
+A          J                           JOIN(1 2)                 
+A                                      JFLD(BRANCH BR#)          
+A            CUSNO                     JREF(1)                   
+A            COMNAM                    JREF(1)                   
+A            BRNAME                    JREF(2)                   
+TESTLF
+A                                      UNIQUE               
+A          R WRKREC                    PFILE(SHARAF/TESTPF) 
+A          K FLD1                                           
+A          K FLD3                                           
+TESTPF
+A          R WRKREC              
+A            FLD1           6S 0 
+A            FLD2          10A   
+A            FLD3            L   
+A            FLD4            Z   
+USERLSTF
+A                                      UNIQUE  
+A          R WRKREC                            
+A            UPUPRF        10A                 
+A            UPPSOD         6A                 
+A            UPPSOT        10A                 
+A            UPJBDS        10A                 
+A            UPOWNR        10A                 
+A            UPTEXT        50A                 
+A            UPCRLB        10A                 
+A            UPINMN        10A                 
+A            UPUPLK         1A                 
+A            UPSTAT        10A                 
+A            DAYS           6S 0               
+A          K UPUPRF                            
