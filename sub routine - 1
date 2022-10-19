@@ -1,0 +1,28 @@
+   // Sub Routines                                                         
+   //   - Group a logic of Codes                                           
+   //   - Readablity                                                       
+   //   - Organizing Code                                                  
+   // Sub Procedures                                                       
+   //   - Act like Sub Programs                                            
+   //   - Can accept parameters and return values                          
+   //   - can utilize ILE features                                         
+   //   - Used for modularizing code                                       
+   //   - Can be exported outside of program so that other program can call
+   //     this sub procedure                                               
+H DftActGrp(*no)                                                           
+D A               S              2S 0                                      
+D B               S              2S 0                                      
+D C               S              2S 0                                      
+D Add             PR                                                       
+ /Free                                                                     
+     dsply 'Enter Number A: ' ' ' A;                                       
+     dsply 'Enter Number B: ' ' ' B;                                       
+          Callp Add();      
+     dsply  C;         
+     *Inlr = *on;      
+ /End-free             
+P Add             B    
+ /Free                 
+      C = A + B;       
+ /End-free             
+P Add             E    
