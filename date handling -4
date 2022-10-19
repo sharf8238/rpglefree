@@ -1,0 +1,10 @@
+   // Date handling Functions in RPGLE            
+H                                                 
+D MyDateISO       S               D   DatFmt(*ISO)
+ /Free                                            
+    MyDateISO = %date();                          
+    MyDateISO = MyDateISO + %Days(5);             
+    MyDateISO = MyDateISO + %Months(2);           
+    MyDateISO = MyDateISO + %Years(2);            
+     *Inlr = *on;                                 
+ /End-free                                        
