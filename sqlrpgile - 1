@@ -1,0 +1,23 @@
+   // SQLRPGLE                                        
+   // Exec sql                                        
+   //   SET Option Commit = *None;  ** Not working ** 
+   // Exec sql                                        
+   // Create Table qtemp/f1 as ( Select * from TestPF)
+   //   with nodata;                                  
+H                                                     
+FTESTPF    IF   E           K DISK                    
+ *                                                    
+D                                                     
+ *                                                    
+C                                                     
+ /Free                                                
+    Exec Sql                                          
+          SET Option Commit = *None;                  
+    Exec Sql                                          
+          Drop Table Qtemp/F1;                        
+    Exec Sql                                          
+    Create Table qtemp/f1 as 
+       ( Select * from TestPF) 
+     with data;            
+    *Inlr = *on;           
+/End-free                  
