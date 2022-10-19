@@ -1,0 +1,36 @@
+   // Arrays in RPGLE                                          
+   // - Declaration                                            
+   //     - compile time array                                 
+   //     - run time array                                     
+   // - %Lookup                                                
+   // - %LookupXX                                              
+   // - %Elem                                                  
+   // - SORTA(D/A)                                             
+   // - %SUBARR                                                
+   // - %XFOOT                                                 
+H                                                              
+D Arr             S              3s 0 Dim(10)  ascend          
+D Arr1            S              3s 0 Dim(10)                  
+D i               S              2s 0                          
+D xfoot1          S             10s 0                          
+D xfoot2          S             10s 0                          
+D xfoot3          S             10s 0                          
+D ArrC            S              3A   Dim(10) Perrcd(5) CTDATA 
+ *                                                             
+  /Free                        
+     For i = 1 to %Elem(Arr); 
+         Arr(i) = 11-i;       
+     EndFor;                  
+     For i = 1 to %Elem(Arr1);
+         Arr1(i) = i;         
+     EndFor;                  
+     dsply Arrc(2);           
+     dsply Arrc(4);           
+     dsply Arrc(8);           
+     dsply Arrc(1);           
+     dsply Arrc(10);          
+     *Inlr = *on;             
+ /End-free                    
+ATA ARRC                      
+234123412341234               
+ASDFFJSJFJAFSDJ               
