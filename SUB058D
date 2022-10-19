@@ -1,0 +1,58 @@
+A*%%TS  SD  20181230  150010  SHARAF      REL-V5R2M0  5722-WDS             
+A*%%EC                                                                     
+A                                      DSPSIZ(24 80 *DS3)                  
+A          R SCRDTA                    SFL                                 
+A*%%TS  SD  20181230  150010  SHARAF      REL-V5R2M0  5722-WDS             
+A            BR#       R        O  8  7REFFLD(BRMAST/BR# SHARAF/BRANWTN)   
+A            BRNAME    R        O  8 10REFFLD(BRMAST/BRNAME SHARAF/BRANWTN)
+A            BRA001    R        O  8 41REFFLD(BRMAST/BRA001 SHARAF/BRANWTN)
+A            BRBR#D    R        O  8 48REFFLD(BRMAST/BRBR#D SHARAF/BRANWTN)
+A            BRUSRD    R        O  8 51REFFLD(BRMAST/BRUSRD SHARAF/BRANWTN)
+A            OPT            1   I  8  4COMP(EQ 'X')                        
+A          R SCRCTL                    SFLCTL(SCRDTA)                      
+A*%%TS  SD  20181230  150010  SHARAF      REL-V5R2M0  5722-WDS             
+A                                      CA03(03 'exit')                     
+A                                      CA06(06 'add')                      
+A                                      OVERLAY                             
+A  50                                  SFLDSP                              
+A  50                                  SFLDSPCTL                           
+A N50                                  SFLCLR                              
+A  50                                  SFLEND(*MORE)                       
+A                                      SFLSIZ(9999)                        
+A                                      SFLPAG(0015)                        
+A            RCDNBR         4S 0H      SFLRCDNBR(CURSOR)                   
+A                                  2  3DATE                                
+A                                      EDTCDE(Y)                           
+A                                  3  3USER                                
+A                                  2 69TIME                                
+A                                  3 70'SUB058D'                           
+A                                  3 34'Sub file Demo'                     
+A                                  5  6'Position to RRN#'                  
+A            POSNO          4S 0I  5 24                                    
+A                                  7  2'Opt Br            Branch          -
+A                                          Data1  Dt Data2'                
+A          R FOOTER                                                        
+A*%%TS  SD  20181230  140619  SHARAF      REL-V5R2M0  5722-WDS             
+A                                 24 32'F03=Exit F06=Add '                 
+A          R ADDREC                                                        
+A*%%TS  SD  20181230  140619  SHARAF      REL-V5R2M0  5722-WDS             
+A                                      CA12(12 'cancel')                   
+A                                      WINDOW(2 2 10 40)                    
+A                                      WDWBORDER((*COLOR BLU) (*CHAR '*-*|- 
+A                                      |*-*'))                              
+A                                  1 16'Add Records'                        
+A                                  1  1'ADDREC'                             
+A                                      COLOR(BLU)                           
+A                                  3  2'Branch:'                            
+A                                  4  2'Name..:'                            
+A                                  5  2'Data 1:'                            
+A                                  6  2'Data 2:'                            
+A                                  7  2'Data 3:'                            
+A                                  9  3'Enter to Add'                       
+A                                  9 20'F12=Cancel'                         
+A            MSG           30   O  8  5                                     
+A            BR#       R        B  3 11REFFLD(BRMAST/BR# SHARAF/BRANWTN)    
+A            BRNAME    R        B  4 11REFFLD(BRMAST/BRNAME SHARAF/BRANWTN) 
+A            BRA001    R        B  5 11REFFLD(BRMAST/BRA001 SHARAF/BRANWTN) 
+A            BRBR#D    R        B  6 11REFFLD(BRMAST/BRBR#D SHARAF/BRANWTN) 
+A            BRUSRD    R        B  7 11REFFLD(BRMAST/BRUSRD SHARAF/BRANWTN) 
