@@ -1,0 +1,22 @@
+   // DB2  -  file handling              
+   // Read                               
+   // Readp                              
+   // Reade                              
+   // Readpe                             
+   // Chain                              
+   // Setll                              
+   // SetGt                              
+   // Update                             
+   // Delete                             
+   // Write                              
+H                                        
+FCUSTSDC   IF   E           K DISK       
+D i               S              2S 0    
+D c               S              2S 0    
+ /Free                                   
+    For i = 1 to 10;                     
+        Read CUSTSDC;                    
+        Dsply NEWNO;                     
+           EndFor;      
+    *Inlr = *on;
+/End-free       
