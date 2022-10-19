@@ -1,0 +1,16 @@
+   // Date handling Functions in RPGLE                                 
+H                                                                      
+D Date1           S               D   DatFmt(*ISO)                     
+D                                     inz(d'1999-02-17')               
+D time1           S               T                                    
+D                                     inz(t'01.23.45')                 
+D timestamp       S               Z                                    
+D                                     inz(z'1999-02-17-01.23.45.98765')
+D num             S              5S 0                                  
+ /Free                                                                 
+    num = %subdt(date1:*YEARS);                                        
+    dsply num;                                                         
+    num = %subdt(time1:*MN);                                           
+    dsply num;                                                         
+     *Inlr = *on;                                                      
+ /End-free                                                             
