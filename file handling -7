@@ -1,0 +1,28 @@
+   // DB2  -  file handling                        
+   // Read                                         
+   // Readp                                        
+   // Reade                                        
+   // Readpe                                       
+   // Chain                                        
+   // Setll                                        
+   // SetGt                                        
+   // Update                                       
+   // Delete                                       
+   // Write                                        
+H                                                  
+FTESTLF    IF   E           K DISK                 
+C     key           klist                          
+C                   kfld                    fld1   
+C                   kfld                    fld3   
+ /Free                                             
+    FLD1 = 2;                                      
+    FLD3 = %date('2018-12-20');                    
+         CHAIN key TESTLF;                                  
+     if %found(TESTLF);                                 
+        Dsply (%char(fld1) + ' ' + fld2 + %char(fld3)); 
+     Else;                                              
+        Dsply 'Not Found..';                            
+     Endif;                                             
+     *Inlr = *on;                                       
+ /End-free                                          
+                                                   
