@@ -1,0 +1,36 @@
+   // Data Structures                                                
+   //    The ILE compiler allows you to define an area in storage    
+   //    and layout of the fields, called sub fields within the area.
+   //    The area in storage is called Data Structure.               
+   //                                                                
+   //    - Decleration (Different ways)                              
+   //    - Qualified DS                                              
+   //    - Template and likeDS keyword                               
+   //    - Overlay                                                   
+   //    - Multi Dimension                                           
+   //    - Example                                                   
+H                                                                    
+D GeneralTS       DS                                                 
+D  Year                          4A                                  
+D  Cs1                           1A                                  
+D  Month                         2A                                  
+D  Cs2                           1A                                  
+D  Day                           2A                                  
+D  Cs3                           1A                                  
+D  Hrs                           2A        
+D  Cs4                           1A        
+D  Mnt                           2A        
+D  Cs5                           1A        
+D  Sec                           2A        
+D  Cs6                           1A        
+D  Year2                  3      4A        
+D  Dat10                  1     10A        
+D  Time6                 12     19A        
+ *                                         
+ /Free                                     
+     GeneralTS = %char(%TimeStamp());      
+     Dsply Year2;                          
+     Dsply Dat10;                          
+     Dsply Time6;                          
+     *Inlr = *on;                          
+ /End-free                                 
