@@ -1,0 +1,38 @@
+   // Sub Routines                                                         
+   //   - Group a logic of Codes                                           
+   //   - Readablity                                                       
+   //   - Organizing Code                                                  
+   // Sub Procedures                                                       
+   //   - Act like Sub Programs                                            
+   //   - Can accept parameters and return values                          
+   //   - can utilize ILE features                                         
+   //   - Used for modularizing code                                       
+   //   - Can be exported outside of program so that other program can call
+   //     this sub procedure                                               
+H DftActGrp(*no)                                                           
+D A               S              2S 0                                      
+D B               S              2S 0                                      
+D C               S              4S 0                                      
+D Add             PR             4S 0                                      
+D                                2S 0 const                                
+D                                2S 0 const                                
+ /Free                                                                     
+      dsply 'Enter Number A: ' ' ' A;            
+     dsply 'Enter Number B: ' ' ' B;            
+     C =  Add(A:B);                             
+     Dsply  C;                                  
+     C =  Add(10:15);                           
+     Dsply  C;                                  
+     *Inlr = *on;                               
+ /End-free                                      
+P Add             B                             
+D Add             PR                            
+D                 PI             4S 0           
+D Num1                           2S 0 const     
+D Num2                           2S 0 const     
+D Sum             S              4S 0           
+ /Free                                          
+    Sum = NUM1 + NUM2;                          
+    return Sum;                                 
+ /End-free                                      
+P Add             E                             
