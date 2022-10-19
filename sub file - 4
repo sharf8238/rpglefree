@@ -1,0 +1,52 @@
+H                                                        
+FBRANCH    IF   E           K DISK                       
+FSUB001D   CF   E             WORKSTN Sfile(SCRSFL:RRN#) 
+F                                     infDs(Info)        
+D rrn#            S              4S 0 inz                
+D counter         S              2S 0 inz                
+D SflSize         C                   const(8)           
+D EofFlg          S              1A   inz('N')           
+D FirstRec        S                   like(BR#)          
+D                                                        
+D IndAddress      S               *   inz(%Addr(*IN))    
+D                                                        
+D DSIndicator     DS                  Based(IndAddress)  
+D f3Exit                  3      3                       
+D f5Refresh               5      5                       
+D PageDown               66     66                       
+D PageUp                 67     67                       
+D                                                        
+D info            DS                                     
+D ckey                  369    369     
+C                                      
+ /Free                                 
+     Write Footer;                     
+     Setll *Start Branch;              
+     exsr $ClrSFL;                     
+     exsr $LoadSFL;                    
+     DoW *In03 = *Off;                 
+      exsr $DspSFL;                    
+      exsr $Process;                   
+     Enddo;                            
+     *Inlr = *on;                      
+ /End-free                             
+ /Free                                 
+     begSr $ClrSFL;                    
+     *In50 = *off;                     
+     RRN# = 0;                         
+     write SCRCTL;                     
+     *In50 = *on;                      
+     endSr;                            
+      /End-free                   
+ /Free                       
+     begSr $LoadSFL;         
+     Read Branch;            
+     Dow  Not %Eof(Branch);  
+        RRN# += RRN#;        
+        if RRN# = 1          
+           First_Rec = Br#;  
+        write ScrSfl;        
+        Read Branch;         
+     EndDo;                  
+     endSr;                  
+ /End-free                   
