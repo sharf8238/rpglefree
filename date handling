@@ -1,0 +1,21 @@
+   // Date handling Functions in RPGLE            
+H                                                 
+D MyDateISO       S               D   DatFmt(*ISO)
+D MyDateUSA       S               D   DatFmt(*USA)
+D MyDateEUR       S               D   DatFmt(*EUR)
+D MyDateYMD       S               D   DatFmt(*YMD)
+D MyDateMDY       S               D   DatFmt(*MDY)
+D MyDateDMY       S               D   DatFmt(*DMY)
+ /Free                                            
+    MyDateISO = %date();                          
+    MyDateUSA = MyDateISO;                        
+    MyDateEUR = %date();                          
+  //                                              
+    MyDateYMD = MyDateISO;                        
+    MyDateMDY = MyDateUSA;                        
+    MyDateDMY = MyDateEUR;                        
+    dsply       MyDateISO;                        
+    dsply       MyDateUSA;                        
+    dsply       MyDateEUR; 
+         *Inlr = *on; 
+ /End-free        
