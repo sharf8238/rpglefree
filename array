@@ -1,0 +1,23 @@
+   // Arrays in RPGLE                            
+   // - Declaration                              
+   //     - compile time array                   
+   //     - run time array                       
+   // - %Lookup                                  
+   // - %LookupXX                                
+   // - %Elem                                    
+   // - SORTA(D/A)                               
+   // - %SUBARR                                  
+   // - %XFOOT                                   
+H                                                
+D Arr             S              3s 0 Dim(10)    
+D i               S              2s 0            
+ *                                               
+ /Free                                           
+     For i = 1 to %Elem(Arr);                    
+         Arr(i) = i;                             
+     EndFor;                                     
+     For i = 1 to %Elem(Arr); 
+             Dsply Arr(i);    
+     EndFor;              
+     *Inlr = *on;         
+/End-free                
