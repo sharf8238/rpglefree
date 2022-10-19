@@ -1,0 +1,12 @@
+   // Date handling Functions in RPGLE                    
+H                                                         
+D MyDateISO1      S               D   DatFmt(*ISO)        
+D MyDateISO2      S               D   DatFmt(*ISO)        
+D                                     inz(d'2015-01-01')  
+D Days_Diff       S              5S 0                     
+ /Free                                                    
+    MyDateISO1= %date();                                  
+    Days_Diff = %abs(%Diff(MyDateISO1:MyDateISO2:*Days)); 
+    dsply Days_Diff;                                      
+     *Inlr = *on;                                         
+ /End-free                                                
