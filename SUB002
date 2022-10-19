@@ -1,0 +1,44 @@
+A*%%TS  SD  20181209  120515  SHARAF      REL-V5R2M0  5722-WDS             
+A*%%EC                                                                     
+A                                      DSPSIZ(24 80 *DS3)                  
+A                                      PAGEDOWN(66)                        
+A                                      PAGEUP(67)                          
+A          R SCRSFL                    SFL                                 
+A*%%TS  SD  20181209  110655  SHARAF      REL-V5R2M0  5722-WDS             
+A            BR#       R        O  9  8REFFLD(BRMAST/BR# FIL2KLIB/BRANCH)  
+A            BRNAME    R        O  9 15REFFLD(BRMAST/BRNAME FIL2KLIB/BRANC-
+A                                      H)                                  
+A            BRA002    R        O  9 48REFFLD(BRMAST/BRA002 FIL2KLIB/BRANC-
+A                                      H)                                  
+A          R SCRCTL                    SFLCTL(SCRSFL)                      
+A*%%TS  SD  20181209  120515  SHARAF      REL-V5R2M0  5722-WDS             
+A                                      CA03(03 'Exit')                     
+A                                      CA05(05 'Refresh')                  
+A  50                                  SFLDSP                              
+A  50                                  SFLDSPCTL                           
+A N50                                  SFLCLR                              
+A  99                                  SFLEND(*MORE)                       
+A                                      SFLSIZ(0008)                        
+A                                      SFLPAG(0008)                        
+A                                  1 38'kgpdc'                             
+A                                  1  2USER                                
+A                                      COLOR(BLU)                          
+A                                  2  2DATE                                
+A                                      EDTCDE(Y)                           
+A                                      COLOR(BLU)                          
+A                                  1 71'SUB002D '                          
+A                                      COLOR(BLU)                          
+A                                  2 71TIME                                
+A                                      COLOR(BLU)                          
+A                                  8  6'Branch Code       Name In English -
+A                                                  Name In Arabic         -
+A                                         '                                
+A                                      DSPATR(UL)                          
+A                                  2 29'Branch file Maintenance'           
+A                                  3 31'Single Page Subfile'               
+A                                  5  7'Position To..'                     
+A            POSN           2D 0B  5 22CHECK(RZ)               
+A          R FOOTER                                            
+A*%%TS  SD  20181209  120515  SHARAF      REL-V5R2M0  5722-WDS 
+A                                 24 30'F03-Exit  F05-Refresh' 
+A                                      COLOR(BLU)              
