@@ -1,0 +1,29 @@
+   // BIFs Built In Functions in RPGLE                      
+H                                                           
+D TS_C            S             26A                         
+D TS_N            S             26S 0                       
+D i               S              2S 0                       
+D Guess           S              2S 0                       
+D Num             S              2S 0                       
+D Count           S              3S 0                       
+ /Free                                                      
+    TS_C = %Char(%Timestamp():*iso0);                       
+    TS_N = %Dec(%Subst(TS_C:1:17):17:0);                    
+    Guess= %Rem(TS_N:50)+1;                                 
+    dsply 'I am thinking number between 1 and 50';          
+    DoW (1=1);                                              
+      dsply 'Guess the Number ..:' ' ' Num;                 
+       if (Num<Guess);                                      
+          dsply 'Your number is too low';                   
+          count +=1;                                        
+       Elseif (Num>Guess);                                  
+                dsply 'Your number is too high';                            
+         count +=1;                                                  
+      Else;                                                          
+         count +=1;                                                  
+         dsply ('You found it in... ' +%char(count)+ '   Guesses  ');
+         leave;                                                      
+      Endif;                                                         
+    EndDo;                                                           
+    *Inlr = *on;                                                     
+/End-free                                                            
