@@ -1,0 +1,22 @@
+A*%%TS  SD  20181230  114038  SHARAF      REL-V5R2M0  5722-WDS          
+A*%%EC                                                                  
+A                                      DSPSIZ(24 80 *DS3)               
+A          R SCR001                                                     
+A*%%TS  SD  20181230  114038  SHARAF      REL-V5R2M0  5722-WDS          
+A                                      CA03(03 'exit')                  
+A                                      CA05(05 'refresh')               
+A                                  2  1DATE                             
+A                                      EDTCDE(Y)                        
+A                                      COLOR(BLU)                       
+A                                  3  1USER                             
+A                                      COLOR(BLU)                       
+A                                  2 68TIME                             
+A                                      COLOR(BLU)                       
+A                                  3 69'SUB056D'                        
+A                                      COLOR(BLU)                       
+A                                  3 30'Farenheit to Celcious'          
+A                                  9 14'Enter Celcious...:'             
+A                                 10 14'Farenheit........:'             
+A            CEL            6Y 2I  9 34                       
+A            FAR            6Y 2O 10 34EDTWRD('    .  ')      
+A                                 19 31'F3=Exit, F5=Refresh'  
