@@ -17,3 +17,8 @@ FTESTLF    IF   E           K DISK
      CHAIN (FLD1:FLD3) TESTLF;                          
      if %found(TESTLF);                                 
         Dsply (%char(fld1) + ' ' + fld2 + %char(fld3)); 
+    Else;                   
+       Dsply 'Not Found..'; 
+    Endif;                  
+    *Inlr = *on;            
+/End-free                   
