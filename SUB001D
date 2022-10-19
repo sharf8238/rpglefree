@@ -1,0 +1,35 @@
+A*%%TS  SD  20181209  120437  SHARAF      REL-V5R2M0  5722-WDS             
+A*%%EC                                                                     
+A                                      DSPSIZ(24 80 *DS3)                  
+A          R SCRSFL                    SFL                                 
+A*%%TS  SD  20181209  110655  SHARAF      REL-V5R2M0  5722-WDS             
+A            BR#       R        O  9  8REFFLD(BRMAST/BR# FIL2KLIB/BRANCH)  
+A            BRNAME    R        O  9 15REFFLD(BRMAST/BRNAME FIL2KLIB/BRANC-
+A                                      H)                                  
+A            BRA002    R        O  9 48REFFLD(BRMAST/BRA002 FIL2KLIB/BRANC-
+A                                      H)                                  
+A          R SCRCTL                    SFLCTL(SCRSFL)                      
+A*%%TS  SD  20181209  120437  SHARAF      REL-V5R2M0  5722-WDS             
+A                                      SFLSIZ(0100)                        
+A                                      SFLPAG(0010)                        
+A                                      CA03(03 'Exit')                     
+A  50                                  SFLDSP                              
+A  50                                  SFLDSPCTL                           
+A N50                                  SFLCLR                              
+A  50                                  SFLEND(*MORE)                       
+A                                  1 38'kgpdc'                              
+A                                  1  2USER                                 
+A                                      COLOR(BLU)                           
+A                                  2  2DATE                                 
+A                                      EDTCDE(Y)                            
+A                                      COLOR(BLU)                           
+A                                  1 71'SUB001D '                           
+A                                      COLOR(BLU)                           
+A                                  2 71TIME                                 
+A                                      COLOR(BLU)                           
+A                                  8  6'Branch Code       Name In English - 
+A                                                  Name In Arabic         - 
+A                                         '                                 
+A                                      DSPATR(UL)                           
+A                                  2 29'Branch file Maintenance'            
+A                                  3 33'Load All Subfile'                   
