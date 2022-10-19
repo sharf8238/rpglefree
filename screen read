@@ -1,0 +1,15 @@
+H                                           
+FSUB056D   CF   E             WORKSTN       
+ /Free                                      
+    Dow *in03 = *off;                       
+     Exfmt SCR001;                          
+      If (*in05 = *on);                     
+         Cel = 0;                           
+         Far = 0;                           
+         *in05 = *off;                      
+      Else;                                 
+     Far = ( Cel * 9/5) + 32;               
+      Endif;                                
+    EndDo;                                  
+     *Inlr = *on;                           
+ /End-free                                  
