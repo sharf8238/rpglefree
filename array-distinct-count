@@ -1,0 +1,39 @@
+   // Get Number N as Input                           
+   //    -Get N numbers                               
+   //    -Print how many distinct number we got       
+   //    -Print each numbers with its occurances      
+   // eg N=5                                          
+   //    - Numbers are (1,2,3,1,2)                    
+   //    - Distinct Number is 3                       
+   //    - 1 occurs 2 times                           
+   //    - 2 occurs 2 times                           
+   //    - 3 occurs 1 times                           
+   //                                                 
+H                                                     
+D Arr             S              3s 0 Dim(10) Descend 
+D i               S              2s 0                 
+D N               S              2s 0                 
+D Count           S              2s 0                 
+D Distinct        S              2s 0                 
+ *                                                    
+ /Free   
+      Dsply 'Enter the Number' '' N;                                   
+     For i = 1 to N;                                                  
+         Dsply 'Enter Array Items..:' ' ' Arr(i);                     
+     EndFor;                                                          
+     sortA Arr;                                                       
+     Count = 1;                                                       
+     Distinct = 1;                                                    
+     For i=1 to N-1;                                                  
+        if (Arr(i)=Arr(i+1));                                         
+           Count +=1;                                                 
+        else;                                                         
+           Dsply (%char(Arr(i)) + ' occurs' +%char(Count)+ ' Times'); 
+           Distinct +=1;                                              
+           Count = 1;                                                 
+        endif;                                                        
+     endfor;                                                          
+           Dsply (%char(Arr(i)) + ' occurs' +%char(Count)+  ' Times');
+           Dsply ('Distinct Value ' +   %char(Distinct));             
+     *Inlr = *on;                                                     
+ /End-free                                                            
