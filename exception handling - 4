@@ -1,0 +1,43 @@
+  // Exception Handling in RPGLE                                          
+  // Insert Into Sharaf/Testpf Values(2, 'new name', '2018-12-20', curren 
+  // t timestamp)                                                         
+  // Cretae Table Sharf/Testpf1 (Sno Numeric , Name Varchar ( 20))        
+  // Create Alias Qtemp/Testpf for Louie/Vacsdc(Sharaf)                   
+  // Select * from empmast fetch first 5 rows only                        
+  // Select * From CUSTMR Where BRANCH Not In (Select BR# FROM BRANCH)    
+  // Select * From CUSTMR left join BRANCH on BRANCH=BR# Keep left as itis
+  // SELECT CUSNO, BRANCH,BRNAME FROM custmr right join BRANCH on         
+  // branch=br#                                                           
+  // Create View Qtemp/TestView AS Select br# FROM branch WHERE br#=1     
+  //           Handle Error                                               
+  //        On-Error *ALL                                                 
+  //           Handle Error                                               
+  //      EndMon                                                          
+                                                                          
+ Str             S             10A   inz('ABC')                           
+ Pos             S              2S 0                                      
+ i               S              2S 0                                      
+ D a               S              2S 0 inz(10)      
+D b               S              2S 0 inz(1)       
+D c               S              2S 0              
+D arr             S              2S 0 dim(5)       
+D DIV_BY_ZERO     C                   00102        
+D CHAR_TO_DEC     C                   00105        
+D ARRAY_IDX       C                   00121        
+ /Free                                             
+    Monitor;                                       
+        c = a/b;                                   
+        Pos = %dec(str:2:0);                       
+        i = 10;                                    
+        c = Arr(i);                                
+    On-Error DIV_BY_ZERO;                          
+        dsply 'Attempt to divide by zero';         
+    On-Error CHAR_TO_DEC;                          
+        dsply 'Char to Decimal Not Valid';         
+    On-Error ARRAY_IDX;                            
+        dsply 'Invalid Array Index';               
+    On-Error;                                      
+           dsply 'Un Monitored Error.'; 
+   EndMon;                          
+    *Inlr = *on;                    
+/End-free                           
