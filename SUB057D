@@ -1,0 +1,26 @@
+A*%%TS  SD  20181230  121201  SHARAF      REL-V5R2M0  5722-WDS    
+A*%%EC                                                            
+A                                      DSPSIZ(24 80 *DS3)         
+A          R SCR001                                               
+A*%%TS  SD  20181230  121201  SHARAF      REL-V5R2M0  5722-WDS    
+A                                      CA03(03 'exit')            
+A                                      CA05(05 'refresh')         
+A                                  2  1DATE                       
+A                                      EDTCDE(Y)                  
+A                                      COLOR(BLU)                 
+A                                  3  1USER                       
+A                                      COLOR(BLU)                 
+A                                  2 68TIME                       
+A                                      COLOR(BLU)                 
+A                                  3 69'SUB057D'                  
+A                                      COLOR(BLU)                 
+A                                  3 36'Calculator'               
+A                                  9 14'Enter First Numbr:'       
+A                                 13 14'Result ..........:'       
+A            NUM1           6Y 2I  9 34                        
+A            RESULT         6Y 2O 13 34EDTWRD('    .  ')       
+A                                 19 31'F3=Exit, F5=Refresh'   
+A                                 10 14'Enter Operation  :'    
+A                                 11 14'Enter 2nd Number :'    
+A            OPRTR          1A  I 10 36VALUES('+' '-' '*' '/') 
+A            NUM2           6Y 2I 11 34                        
