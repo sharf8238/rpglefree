@@ -1,0 +1,36 @@
+H                                     
+FSUB057D   CF   E             WORKSTN 
+ /Free                                
+    Dow *in03 = *off;                 
+     Exfmt SCR001;                    
+      If (*in05 = *on);               
+         Num1= 0;                     
+         OPRTR=' ';                   
+         Num2= 0;                     
+         Result=0;                    
+         *in05 = *off;                
+      Else;                           
+      Select;                         
+         When OPRTR='+';              
+           Result=Num1+Num2;          
+         When OPRTR='-';              
+           Result=Num1-Num2;          
+         When OPRTR='*';              
+         Monitor;                     
+                    Result=Num1*Num2;   
+         On-Error;             
+           Result=0;           
+         EndMon;               
+         When OPRTR='/';       
+         Monitor;              
+           Result=Num1/Num2;   
+         On-Error;             
+           Result=0;           
+         EndMon;               
+         Other;                
+           Result=0;           
+      EndSL;                   
+      EndIF;                   
+    EndDo;                     
+     *Inlr = *on;              
+ /End-free                     
